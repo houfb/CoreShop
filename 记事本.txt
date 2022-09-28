@@ -1,0 +1,7 @@
+新还原的数据库如何初始化后台账户：
+--------------------------------------------
+select * from [dbo].[SysUser] 
+update [SysUser] set passWord='098f6bcd4621d373cade4e832627b4f6' where id=1
+
+--[Guid("2B28B84B-9195-4189-BB28-E3722D1413F9")]
+

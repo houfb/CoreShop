@@ -1,5 +1,6 @@
 using Autofac.Extensions.DependencyInjection;
 using CoreCms.Net.Loging;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,14 +54,15 @@ namespace CoreCms.Net.Web.Admin
                     logging.ClearProviders(); //移除已经注册的其他日志处理程序
                     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace); //设置最小的日志级别
                 })
-                .UseNLog() //NLog: Setup NLog for Dependency injection
+                .UseNLog()//NLog: Setup NLog for Dependency injection
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
                         .ConfigureKestrel(serverOptions =>
                         {
-                            serverOptions.AllowSynchronousIO = true;//启用同步 IO
+                            serverOptions.AllowSynchronousIO = true;//启用同步 IO  （H:暂不清楚项目中何处需要这样的同步IO）
                         })
+                        .UseUrls("http://*:9008;https://*:9009")
                         .UseStartup<Startup>();
                 });
     }

@@ -185,7 +185,7 @@ namespace CoreCms.Net.Web.Admin
             app.UseRecordAccessLogsMildd();
             // 记录ip请求 (注意开启权限，不然本地无法写入)
             app.UseIpLogMildd();
-            // signalr
+            // SignalR  (ASP.NET SignalR 是为 ASP.NET 开发人员提供的一个库，可以简化开发人员将实时 Web 功能添加到应用程序的过程。实时 Web 功能是指这样一种功能：当所连接的客户端变得可用时服务器代码可以立即向其推送内容，而不是让服务器等待客户端请求新的数据。WebSockets是HTML5提供的新的API，可以在Web网页与服务器端间建立Socket连接，当WebSockets可用时（即浏览器支持Html5）SignalR使用WebSockets，当不支持时SignalR将使用其它技术来保证达到相同效果。)
             app.UseSignalRSendMildd();
 
 

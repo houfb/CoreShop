@@ -61,7 +61,8 @@ namespace CoreCms.Net.Web.WebApi
                         .ConfigureKestrel(serverOptions =>
                         {
                             serverOptions.AllowSynchronousIO = true; //∆Ù”√Õ¨≤Ω IO
-                        })
+                        }) 
+                        .UseUrls("http://*:9007;https://*:443")
                         .UseStartup<Startup>();
                 });
         }
